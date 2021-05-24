@@ -15,7 +15,7 @@ public class TestCases extends BaseTest {
         DoodleStartPage startPage = new DoodleStartPage(driver);
         startPage.clickOnLoginButton();
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevic.tamedia+15@doodle.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
         DoodleDashboardPage dashboard = new DoodleDashboardPage(driver);
         dashboard.clickUserAvatarMenuButton();
         WebElement logOutButton = dashboard.logOutButton();
@@ -28,7 +28,7 @@ public class TestCases extends BaseTest {
         DoodleStartPage startPage = new DoodleStartPage(driver);
         startPage.clickOnLoginButton();
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevicF.tamedia+15@doodle.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
         String invalidEmail = loginPage.errorMessage().toLowerCase();
         Assert.assertTrue("Error message for invalid email did not appear", invalidEmail.contains("invalid email. try again, please."));
 
