@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.util.List;
+
 public class GroupMeetingCreatedPage extends BaseHelper {
 
     WebDriver driver;
@@ -38,10 +40,14 @@ public class GroupMeetingCreatedPage extends BaseHelper {
 
     public void clickOnSendYourVotesButton()
     {
+        wdWait.until(ExpectedConditions.elementToBeClickable((By.cssSelector("[class=\"d-checkbox d-participantPreference d-noPreference\"]"))));
+        List <WebElement> voteCheckboxes = driver.findElements(By.cssSelector("[class=\"d-checkbox d-participantPreference d-noPreference\"]"));
+        WebElement firstCheckBox = voteCheckboxes.get(0);
+        firstCheckBox.click();
         wdWait.until(ExpectedConditions.elementToBeClickable
-                (By.xpath("/html/body/div[2]/div/div/div/section/div/div/div/div/div[2]/div/div[3]/section/div/div/div[3]/button")));
+                (By.cssSelector("button.d-participateButton")));
         WebElement sendYourVoteButton = driver.findElement
-                (By.xpath("/html/body/div[2]/div/div/div/section/div/div/div/div/div[2]/div/div[3]/section/div/div/div[3]/button"));
+                (By.cssSelector("button.d-participateButton"));
         js.executeScript("arguments[0].scrollIntoView();",sendYourVoteButton);
         sendYourVoteButton.click();
         wdWait.until(ExpectedConditions.presenceOfElementLocated(By.className("d-toggleSubscriptionToUpdates")));

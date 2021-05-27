@@ -60,11 +60,14 @@ public class DoodleDashboardPage extends BaseHelper {
 
     public void clickOnCreateGroupMeeting()
     {
-        wdWait.until(ExpectedConditions.presenceOfElementLocated(By.className("CreatePollMenu")));
-        WebElement createButton = driver.findElement(By.className("CreatePollMenu"));
+        wdWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-testid='navigation-create-button']")));
+        WebElement createButton = driver.findElement(By.cssSelector("[data-testid='navigation-create-button']"));
         createButton.click();
-        List<WebElement> menu = createButton.findElements(By.className("Menu-item"));
-        menu.get(0).click();
+        wdWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[data-testid='create-group-poll-button']")));
+        WebElement groupPollCreate = driver.findElement(By.cssSelector("[data-testid='create-group-poll-button']"));
+        groupPollCreate.click();
+//        List<WebElement> menu = createButton.findElements(By.className("Menu-item"));
+//        menu.get(0).click();
     }
 
     public void clickOnCreateOneToOneMeeting() {

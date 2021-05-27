@@ -27,7 +27,7 @@ public class BaseHelper
 //        driver = new ChromeDriver();
 //    }
 
-    protected  WebDriverWait wdWait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    protected  WebDriverWait wdWait = new WebDriverWait(driver, Duration.ofSeconds(15));
     protected  JavascriptExecutor js = (JavascriptExecutor) driver;
 
     public  WebElement returnElementAttValue (String attributeName, String attributeValue)
