@@ -7,6 +7,10 @@ import org.openqa.selenium.WebElement;
 import pages.*;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestCases extends BaseTest {
 
@@ -88,14 +92,18 @@ public class TestCases extends BaseTest {
         meetingCreated.clickOnSendInvitationsButton();
         meetingCreated.clickOnSendYourVotesButton();
 
-        String textFromTable = meetingCreated.getParticipants().getText().toLowerCase();
+        List<String> invitees = new ArrayList<>();
+        invitees.add(invitee1);
+        invitees.add(invitee2);
+        invitees.add(invitee3);
+
+        List<String> participantEmails = meetingCreated.getParticipantEmails();
+
+        assertEquals("Invitees are not in the participants list",invitees, participantEmails);
 
         Assert.assertTrue("Edit meeting button is not displayed", meetingCreated.getEditMeetingButton().isDisplayed());
 
         meetingCreated.scrollParticipationTableIntoView();
-        Assert.assertTrue("Invitee1 is not in the participation table", textFromTable.contains(invitee1.toLowerCase()));
-        Assert.assertTrue("Invitee2 is not in the participation table", textFromTable.contains(invitee2.toLowerCase()));
-        Assert.assertTrue("Invitee3 is not in the participation table", textFromTable.contains(invitee3.toLowerCase()));
 
 //      thread sleep ostavljen zbog vizuelne konfirmacije
         Thread.sleep(5000);
