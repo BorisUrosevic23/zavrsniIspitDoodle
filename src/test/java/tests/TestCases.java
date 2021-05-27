@@ -11,6 +11,12 @@ import java.awt.*;
 public class TestCases extends BaseTest {
 
     @Test
+    public void prazna()
+    {
+
+    }
+
+    @Test
     public void positiveloginTest() throws InterruptedException {
         DoodleStartPage startPage = new DoodleStartPage(driver);
         startPage.clickOnLoginButton();
@@ -21,6 +27,8 @@ public class TestCases extends BaseTest {
         WebElement logOutButton = dashboard.logOutButton();
         String logOutButtonText = logOutButton.getText().toLowerCase();
         Assert.assertTrue("Log Out button not displayed", logOutButtonText.contains("log out"));
+
+        Thread.sleep(4000); // left for visual confirmation
     }
 
     @Test
@@ -28,7 +36,7 @@ public class TestCases extends BaseTest {
         DoodleStartPage startPage = new DoodleStartPage(driver);
         startPage.clickOnLoginButton();
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword0");
         String invalidEmail = loginPage.errorMessage().toLowerCase();
         Assert.assertTrue("Error message for invalid email did not appear", invalidEmail.contains("invalid email. try again, please."));
 
