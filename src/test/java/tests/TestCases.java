@@ -76,9 +76,9 @@ public class TestCases extends BaseTest {
         pollSettings.clickOnContinueButton();
 
         GroupMeetingCreatedPage meetingCreated = new GroupMeetingCreatedPage(driver);
-        String invitee1 = "boris.urosevic+1@doodle-test.com";
-        String invitee2 = "boris.urosevic+2@doodle-test.com";
-        String invitee3 = "boris.urosevic+3@doodle-test.com";
+        String invitee1 = "boris.urosevic+1@doodle.com";
+        String invitee2 = "boris.urosevic+2@doodle.com";
+        String invitee3 = "boris.urosevic+3@doodle.com";
 
         meetingCreated.insertEmailToAddInviteesField(invitee1);
         meetingCreated.insertEmailToAddInviteesField(invitee2);
