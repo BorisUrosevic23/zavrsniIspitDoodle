@@ -116,7 +116,7 @@ public class TestCases extends BaseTest {
         startPage.clickOnLoginButton();
 
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevic@doodle-test.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
 
         DoodleDashboardPage dashboard = new DoodleDashboardPage(driver);
         dashboard.clickOnCreateOneToOneMeeting();
@@ -156,7 +156,7 @@ public class TestCases extends BaseTest {
         startPage.clickOnLoginButton();
 
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevic@doodle-test.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
 
         DoodleDashboardPage dashboard = new DoodleDashboardPage(driver);
         dashboard.waitForEverythingToLoadOnDashboard();
@@ -165,11 +165,8 @@ public class TestCases extends BaseTest {
 
         int listSizeBeforeArchive = dashboard.numberOfMeetingsOnDashboard();
 
-//        System.out.println(nameOfTheFirstMeeting);
-//        System.out.println(nameOfFirstMeetingBeforeArchive);
         dashboard.archiveFirstOneToOneMeeting();
         dashboard.waitForEverythingToLoadOnDashboard();
-//        System.out.println(nameOfTheFirstMeeting);
 
         int listSizeAfterArchive = dashboard.numberOfMeetingsOnDashboard();
 
