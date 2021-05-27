@@ -105,7 +105,7 @@ public class OneToOneInfoAndCalendarPage extends BaseHelper {
 
         }
 
-    public void selectATimeslotOnCalendarTwo() throws AWTException {
+    public void selectATimeslotOnCalendarTwo() {
         wdWait.until(ExpectedConditions.presenceOfElementLocated(By.className("rbc-time-column")));
         List <WebElement> calendarWizard = driver.findElements(By.className("rbc-time-column"));
         System.out.println(calendarWizard.size());
@@ -130,11 +130,6 @@ public class OneToOneInfoAndCalendarPage extends BaseHelper {
             By continueButan = By.cssSelector("button");
             wdWait.until(ExpectedConditions.elementToBeClickable(continueButan)); // calendar_toolbar-btn
             WebElement continueButton = futer.findElement(continueButan);
-//            if (wdWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(".Button--whiteWithBorder"))).isDisplayed()) {
-//                WebElement modalButton = driver.findElement((By.cssSelector(".Button--whiteWithBorder")));
-//                modalButton.click();
-//            }
-//            else
             continueButton.click();
         }
 

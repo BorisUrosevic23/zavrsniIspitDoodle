@@ -179,8 +179,4 @@ public class DoodleDashboardPage extends BaseHelper {
         wdWait.until(ExpectedConditions.invisibilityOf(desiredMeeting));
     }
 
-
-
-
-
 }
