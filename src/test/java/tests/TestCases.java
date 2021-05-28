@@ -15,12 +15,6 @@ import static org.junit.Assert.assertEquals;
 public class TestCases extends BaseTest {
 
     @Test
-    public void prazna()
-    {
-
-    }
-
-    @Test
     public void positiveloginTest() throws InterruptedException {
         DoodleStartPage startPage = new DoodleStartPage(driver);
         startPage.clickOnLoginButton();
