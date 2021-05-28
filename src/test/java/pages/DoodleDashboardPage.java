@@ -72,11 +72,12 @@ public class DoodleDashboardPage extends BaseHelper {
 
     public void clickOnCreateOneToOneMeeting() {
 
-        wdWait.until(ExpectedConditions.presenceOfElementLocated(By.className("CreatePollMenu")));
-        WebElement createButton = driver.findElement(By.className("CreatePollMenu"));
+        wdWait.until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("[data-testid='navigation-create-button']")));
+        WebElement createButton = driver.findElement(By.cssSelector("[data-testid='navigation-create-button']"));
         createButton.click();
-        List<WebElement> menu = createButton.findElements(By.className("Menu-item"));
-        menu.get(2).click();
+        wdWait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("[data-testid='create-one-on-one-button']")));
+        WebElement groupPollCreate = driver.findElement(By.cssSelector("[data-testid='create-one-on-one-button']"));
+        groupPollCreate.click();
     }
 
     public void archiveFirstOneToOneMeeting()
@@ -177,9 +178,5 @@ public class DoodleDashboardPage extends BaseHelper {
         deleteButtonModal.click();
         wdWait.until(ExpectedConditions.invisibilityOf(desiredMeeting));
     }
-
-
-
-
 
 }

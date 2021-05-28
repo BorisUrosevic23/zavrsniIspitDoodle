@@ -1,0 +1,14 @@
+pages/GroupMeetingCreatedPage.class
+pages/OrgExCreationPage.class
+TestnaKlasaOOP.class
+pages/DoodleDashboardPage.class
+tests/BaseTest.class
+pages/GroupPollSettingOnCreationPage.class
+pages/GroupCalendarOnCreationPage.class
+pages/DoodleLoginPage.class
+pages/OneToOneInfoAndCalendarPage.class
+pages/GroupMeetingInfoPage.class
+helpers/BaseHelper.class
+pages/OneToOneInvitationsPage.class
+pages/DoodleStartPage.class
+tests/TestCases.class

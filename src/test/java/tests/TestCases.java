@@ -7,6 +7,10 @@ import org.openqa.selenium.WebElement;
 import pages.*;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertEquals;
 
 public class TestCases extends BaseTest {
 
@@ -88,14 +92,18 @@ public class TestCases extends BaseTest {
         meetingCreated.clickOnSendInvitationsButton();
         meetingCreated.clickOnSendYourVotesButton();
 
-        String textFromTable = meetingCreated.getParticipants().getText().toLowerCase();
+        List<String> invitees = new ArrayList<>();
+        invitees.add(invitee1);
+        invitees.add(invitee2);
+        invitees.add(invitee3);
+
+        List<String> participantEmails = meetingCreated.getParticipantEmails();
+
+        assertEquals("Invitees are not in the participants list",invitees, participantEmails);
 
         Assert.assertTrue("Edit meeting button is not displayed", meetingCreated.getEditMeetingButton().isDisplayed());
 
         meetingCreated.scrollParticipationTableIntoView();
-        Assert.assertTrue("Invitee1 is not in the participation table", textFromTable.contains(invitee1.toLowerCase()));
-        Assert.assertTrue("Invitee2 is not in the participation table", textFromTable.contains(invitee2.toLowerCase()));
-        Assert.assertTrue("Invitee3 is not in the participation table", textFromTable.contains(invitee3.toLowerCase()));
 
 //      thread sleep ostavljen zbog vizuelne konfirmacije
         Thread.sleep(5000);
@@ -108,7 +116,7 @@ public class TestCases extends BaseTest {
         startPage.clickOnLoginButton();
 
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevic@doodle-test.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
 
         DoodleDashboardPage dashboard = new DoodleDashboardPage(driver);
         dashboard.clickOnCreateOneToOneMeeting();
@@ -148,7 +156,7 @@ public class TestCases extends BaseTest {
         startPage.clickOnLoginButton();
 
         DoodleLoginPage loginPage = new DoodleLoginPage(driver);
-        loginPage.loginAttempt("boris.urosevic@doodle-test.com", "testPassword");
+        loginPage.loginAttempt("boris.urosevic+7@doodle-test.com", "testPassword");
 
         DoodleDashboardPage dashboard = new DoodleDashboardPage(driver);
         dashboard.waitForEverythingToLoadOnDashboard();
@@ -157,11 +165,8 @@ public class TestCases extends BaseTest {
 
         int listSizeBeforeArchive = dashboard.numberOfMeetingsOnDashboard();
 
-//        System.out.println(nameOfTheFirstMeeting);
-//        System.out.println(nameOfFirstMeetingBeforeArchive);
         dashboard.archiveFirstOneToOneMeeting();
         dashboard.waitForEverythingToLoadOnDashboard();
-//        System.out.println(nameOfTheFirstMeeting);
 
         int listSizeAfterArchive = dashboard.numberOfMeetingsOnDashboard();
 
